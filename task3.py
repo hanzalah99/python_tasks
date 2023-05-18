@@ -1,20 +1,21 @@
 
-import platform,socket,re,uuid,json,logging
+import os
 
-def getSystemInfo():
-    try:
-        info={}
-        info['platform']=platform.system()
-        info['platform-release']=platform.release()
-        info['platform-version']=platform.version()
-        info['architecture']=platform.machine()
-        info['hostname']=socket.gethostname()
-        info['ip-address']=socket.gethostbyname(socket.gethostname())
-        info['mac-address']=':'.join(re.findall('..', '%012x' % uuid.getnode()))
-        info['processor']=platform.processor()
-        #info['ram']=str(round(psutil.virtual_memory().total / (1024.0 **3)))+" GB"
-        return (info)
-    except Exception as e:
-        logging.exception(e)
+def main():
+    cmd = "lscpu"
+    username="emumba"
+    file_name="Summary.txt"
+    file_path= "/home/emumba/Details/Summary.txt"
+    directory = os.path.dirname(file_path)
+    if os.path.exists(directory):
+        print("Directory Already exists")
 
-print(getSystemInfo())
+    else:
+        
+        os.mkdir(directory)
+        print("Making Directory")
+
+    os.system(f"{cmd} > {file_path}")   
+       
+if __name__ == "__main__":
+    main()

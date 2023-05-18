@@ -9,15 +9,14 @@ def pi_estimation(iterations):
         x=random.uniform(0,1)
         y=random.uniform(0,1)
 
-        distance=math.sqrt(x*x+y*y)
-        if distance >=1:
-            points_in_circle+=1
+        distance=x*x+y*y
+        if distance <=1:
+            points_in_circle=points_in_circle+1
 
+    print(points_in_circle)
     pi_estimated=4*(points_in_circle/total_points)
+    print(pi_estimated)
     return(pi_estimated)
-
-
-
 
 
 def main():
@@ -29,3 +28,6 @@ def main():
 
     pi=pi_estimation(iterations)
     print(pi)
+           
+if __name__ == "__main__":
+    main()

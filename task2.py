@@ -5,13 +5,13 @@ def calc_movment(movement):  #function to calculate the distance from starting p
     x,y=0,0
     for index in range(len(movement)):
         if movement[index]=="UP":
-            y=y+int(movement[index+1])     #distance covered UP is added in the y-axis
+            y=y+float(movement[index+1])     #distance covered UP is added in the y-axis
         elif movement[index]=="DOWN":
-            y=y-int(movement[index+1])     #distance covered DOWN is subtracted from the y-axis
+            y=y-float(movement[index+1])     #distance covered DOWN is subtracted from the y-axis
         elif movement[index]=="LEFT":
-            x=x+int(movement[index+1])     #distance covered LEFT is added in the x-axis
+            x=x+float(movement[index+1])     #distance covered LEFT is added in the x-axis
         elif movement[index]=="RIGHT":
-            x=x-int(movement[index+1])     #distance covered DOWN is subtracted from the y-axis
+            x=x-float(movement[index+1])     #distance covered DOWN is subtracted from the y-axis
 
     total_dist=math.sqrt((x*x)+(y*y))
     return round(total_dist)        # total covered is rounded off
@@ -26,3 +26,6 @@ def main():
     movement=tuple(dist)
     result=calc_movment(movement)
     print(result)
+
+if __name__ == "__main__":
+    main()
