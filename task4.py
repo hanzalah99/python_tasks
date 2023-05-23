@@ -35,7 +35,7 @@ def main():
         iterations=args_pi.iterations
 
     
-    pi=pi_estimation(1000)
+    pi=pi_estimation(iterations)
     print(pi)
     
     
